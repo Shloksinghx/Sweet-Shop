@@ -1,4 +1,6 @@
 # Sweet Shop Management System
+[🔗 Live Demo](https://shloksinghx.github.io/Sweet-Shop/)
+
 
 A full-stack application for managing a sweet shop inventory and purchases.
 
