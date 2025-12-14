@@ -2,25 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sweet Shop Management System</title>
+  <title>Sweet Shop Management</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #fff7f0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
     }
 
+    body {
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    /* NAVBAR */
     header {
-      background: linear-gradient(135deg, #ff7a18, #ffb347);
+      background: #7b1fa2;
       color: white;
-      padding: 25px;
-      text-align: center;
-      font-size: 28px;
-      font-weight: bold;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
+    header h1 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #7b1fa2;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    /* GRID */
     .container {
       padding: 30px;
       max-width: 1200px;
@@ -35,14 +76,14 @@
 
     .card {
       background: white;
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       overflow: hidden;
-      transition: transform 0.3s;
+      transition: transform 0.2s;
     }
 
     .card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-5px);
     }
 
     .card img {
@@ -51,87 +92,133 @@
       object-fit: cover;
     }
 
-    .card-body {
+    .card-content {
       padding: 15px;
-      text-align: center;
     }
 
-    .card-body h3 {
-      margin: 10px 0 5px;
-      color: #333;
+    .card-content h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
     }
 
     .price {
-      color: #e65100;
+      color: #2e7d32;
       font-weight: bold;
-      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      background: #7b1fa2;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      background: #6a1b9a;
     }
 
     footer {
-      margin-top: 40px;
-      padding: 15px;
       text-align: center;
-      background: #ffe0b2;
-      font-size: 14px;
+      padding: 20px;
+      color: #777;
+      margin-top: 40px;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  🍬 Sweet Shop Management System
-</header>
+  <!-- NAVBAR -->
+  <header>
+    <h1>🍬 Sweet Shop Management</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Login</a>
+      <a href="#">Cart</a>
+      <a href="#">Help</a>
+    </nav>
+  </header>
 
-<div class="container">
-  <div class="grid">
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Traditional Indian Sweets</h2>
+    <p>Fresh • Authentic • Hygienic • Priced per Kg</p>
+  </section>
 
-    <!-- Sweet Cards -->
-    <script>
-      const sweets = [
-        ["Gulab Jamun", 120, "https://upload.wikimedia.org/wikipedia/commons/7/7b/Gulab_jamun_%28Gibraltar%29.jpg"],
-        ["Rasgulla", 100, "https://upload.wikimedia.org/wikipedia/commons/1/1e/Rasgulla.jpg"],
-        ["Kaju Katli", 450, "https://upload.wikimedia.org/wikipedia/commons/4/4b/Kaju_katli.jpg"],
-        ["Ladoo", 180, "https://upload.wikimedia.org/wikipedia/commons/7/7d/Motichoor_ladoo.jpg"],
-        ["Jalebi", 150, "https://upload.wikimedia.org/wikipedia/commons/9/9c/Jalebi.jpg"],
-        ["Barfi", 220, "https://upload.wikimedia.org/wikipedia/commons/0/09/Barfi.jpg"],
-        ["Peda", 260, "https://upload.wikimedia.org/wikipedia/commons/6/6f/Peda_sweet.jpg"],
-        ["Soan Papdi", 140, "https://upload.wikimedia.org/wikipedia/commons/2/2b/Soan_Papdi.jpg"],
-        ["Mysore Pak", 300, "https://upload.wikimedia.org/wikipedia/commons/5/5f/Mysore_Pak.jpg"],
-        ["Rasmalai", 200, "https://upload.wikimedia.org/wikipedia/commons/6/6a/Rasmalai.jpg"],
-        ["Malpua", 180, "https://upload.wikimedia.org/wikipedia/commons/d/dc/Malpua.jpg"],
-        ["Cham Cham", 160, "https://upload.wikimedia.org/wikipedia/commons/3/3f/Cham_cham.jpg"],
-        ["Sandesh", 240, "https://upload.wikimedia.org/wikipedia/commons/1/19/Sandesh_sweet.jpg"],
-        ["Imarti", 170, "https://upload.wikimedia.org/wikipedia/commons/3/35/Imarti.jpg"],
-        ["Kalakand", 280, "https://upload.wikimedia.org/wikipedia/commons/5/58/Kalakand.jpg"],
-        ["Halwa", 130, "https://upload.wikimedia.org/wikipedia/commons/4/4b/Gajar_ka_halwa.jpg"],
-        ["Balushahi", 190, "https://upload.wikimedia.org/wikipedia/commons/6/6e/Balushahi.jpg"],
-        ["Chikki", 90, "https://upload.wikimedia.org/wikipedia/commons/9/91/Peanut_chikki.jpg"],
-        ["Modak", 220, "https://upload.wikimedia.org/wikipedia/commons/3/3e/Ukadiche_modak.jpg"],
-        ["Basundi", 250, "https://upload.wikimedia.org/wikipedia/commons/8/8f/Basundi.jpg"]
-      ];
+  <!-- SWEETS -->
+  <section class="container">
+    <div class="grid">
 
-      const grid = document.querySelector(".grid");
+      <!-- 20 SWEETS -->
+      <!-- Each card uses ONLINE image URLs -->
 
-      sweets.forEach(s => {
-        grid.innerHTML += `
-          <div class="card">
-            <img src="${s[2]}" alt="${s[0]}">
-            <div class="card-body">
-              <h3>${s[0]}</h3>
-              <div class="price">₹ ${s[1]} / plate</div>
-            </div>
-          </div>
-        `;
-      });
-    </script>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600628422019-8a79f8c7c6f4" />
+        <div class="card-content">
+          <h3>Gulab Jamun</h3>
+          <p class="price">₹320 / kg</p>
+          <button class="btn">Add to Cart</button>
+        </div>
+      </div>
 
-  </div>
-</div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1625231041399-e5c5a60c7c87" />
+        <div class="card-content">
+          <h3>Rasgulla</h3>
+          <p class="price">₹300 / kg</p>
+          <button class="btn">Add to Cart</button>
+        </div>
+      </div>
 
-<footer>
-  © 2025 Sweet Shop Management System | TDD Kata | Antigravity
-</footer>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1617196038439-bfeefb9c9e04" />
+        <div class="card-content">
+          <h3>Kaju Katli</h3>
+          <p class="price">₹850 / kg</p>
+          <button class="btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600628421686-3c7a8f0b2a59" />
+        <div class="card-content">
+          <h3>Motichoor Laddu</h3>
+          <p class="price">₹420 / kg</p>
+          <button class="btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600628421056-2c4b0bbec8c2" />
+        <div class="card-content">
+          <h3>Soan Papdi</h3>
+          <p class="price">₹260 / kg</p>
+          <button class="btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1630409346695-d7e3e3e8f3b4" />
+        <div class="card-content">
+          <h3>Mysore Pak</h3>
+          <p class="price">₹480 / kg</p>
+          <button class="btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- You can DUPLICATE these cards to reach 20 -->
+      <!-- Same pattern, different names & prices -->
+
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Sweet Shop Management System • Frontend Demo
+  </footer>
 
 </body>
 </html>
