@@ -3,337 +3,728 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halwai - Real Indian Sweets</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Mithai Palace - Premium Indian Sweets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        /* --- Reset & Variables --- */
-        :root {
-            --primary: #e67e22; /* A deep, warm saffron */
-            --dark: #2c3e50;
-            --light-grey: #ecf0f1;
-            --white: #ffffff;
-            --shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: #f9f9f9;
-            color: var(--dark);
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFBF5;
+            color: #2D1810;
         }
 
-        a { text-decoration: none; color: inherit; }
-
-        /* --- Sticky Modern Header --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            background: var(--white);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        .font-display {
+            font-family: 'Playfair Display', serif;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: 1px;
+        .hero-gradient {
+            background: linear-gradient(135deg, #FFF5E6 0%, #FFE8CC 100%);
         }
 
-        /* Navigation Links (Hidden on small screens for minimalism) */
-        .nav-links {
-            display: flex;
-            gap: 2rem;
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .nav-links a {
-            font-weight: 500;
-            font-size: 0.9rem;
-            color: var(--dark);
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: var(--primary); }
 
-        /* Header Right Icons */
-        .header-icons {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            font-size: 1.1rem;
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 140, 0, 0.15);
         }
-        
-        .icon-btn {
-            color: var(--dark);
-            transition: color 0.3s;
+
+        .badge-special {
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+        }
+
+        .btn-primary {
+            background: #D97706;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #B45309;
+            transform: scale(1.02);
+        }
+
+        .nav-link {
             position: relative;
+            transition: color 0.3s ease;
         }
-        .icon-btn:hover { color: var(--primary); }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #D97706;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
 
         .cart-badge {
             position: absolute;
             top: -8px;
             right: -8px;
-            background: var(--primary);
-            color: var(--white);
-            font-size: 0.6rem;
-            width: 16px;
-            height: 16px;
+            background: #DC2626;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-        }
-
-        /* --- Main Content --- */
-        .container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
+            font-size: 11px;
             font-weight: 600;
         }
 
-        /* --- Product Grid Styles --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
-            border: 1px solid #eee;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Key to realistic photos: Fixed height container + object-fit: cover */
-        .card-img-box {
-            height: 250px;
-            width: 100%;
-            background: #f0f0f0;
-            position: relative;
-        }
-
-        .card-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* ensures the image fills the box realistically without stretching */
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .sweet-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .sweet-desc {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-top: 1rem;
-        }
-
-        .price-block {
-            display: flex;
-            flex-direction: column;
-        }
-        .price {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--dark);
-        }
-        .unit {
-            font-size: 0.85rem;
-            color: #888;
-        }
-
-        .add-btn {
-            padding: 0.8rem 1.2rem;
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
+        .quantity-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            border: 1px solid #E5E7EB;
+            background: white;
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: background 0.2s;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
         }
-        .add-btn:hover { background: #d35400; }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+        .quantity-btn:hover {
+            background: #F3F4F6;
+            border-color: #D97706;
+        }
+
+        .category-pill {
+            background: white;
+            border: 2px solid #FED7AA;
+            transition: all 0.3s ease;
+        }
+
+        .category-pill:hover,
+        .category-pill.active {
+            background: #D97706;
+            color: white;
+            border-color: #D97706;
+        }
+
+        .price-tag {
+            background: #FEF3C7;
+            color: #92400E;
+            font-weight: 600;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .announcement-bar {
+            animation: slideDown 0.5s ease;
         }
     </style>
 </head>
 <body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar bg-amber-900 text-amber-50 text-center py-2 text-sm">
+        <p>🎉 Festival Special: Get 15% OFF on orders above ₹1000 | Free Delivery on orders above ₹500</p>
+    </div>
 
-    <header>
-        <div class="logo">HALWAI</div>
-        
-        <nav class="nav-links">
-            <a href="#">Menu</a>
-            <a href="#">Specials</a>
-            <a href="#">Gifting Boxes</a>
-        </nav>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-cookie-bite text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-display text-2xl font-bold text-amber-900">Mithai Palace</h1>
+                        <p class="text-xs text-gray-500">Since 1985</p>
+                    </div>
+                </div>
 
-        <div class="header-icons">
-            <a href="#" class="icon-btn" title="Help & Support">
-                <i class="far fa-circle-question"></i>
-            </a>
-            <a href="#" class="icon-btn" title="Login / Account">
-                <i class="far fa-user"></i>
-            </a>
-            <a href="#" class="icon-btn cart-btn" title="Your Cart">
-                <i class="fas fa-bag-shopping"></i>
-                <span class="cart-badge">3</span>
-            </a>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#" class="nav-link text-gray-700 hover:text-amber-700 font-medium">Home</a>
+                    <a href="#products" class="nav-link text-gray-700 hover:text-amber-700 font-medium">Products</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-amber-700 font-medium">About Us</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-amber-700 font-medium">Contact</a>
+                    <a href="#help" class="nav-link text-gray-700 hover:text-amber-700 font-medium">Help</a>
+                </div>
+
+                <!-- Right Icons -->
+                <div class="flex items-center gap-4">
+                    <button class="text-gray-600 hover:text-amber-700 transition">
+                        <i class="fas fa-search text-lg"></i>
+                    </button>
+                    <button onclick="toggleLogin()" class="text-gray-600 hover:text-amber-700 transition">
+                        <i class="fas fa-user text-lg"></i>
+                    </button>
+                    <button class="text-gray-600 hover:text-amber-700 transition">
+                        <i class="fas fa-heart text-lg"></i>
+                    </button>
+                    <button onclick="toggleCart()" class="relative text-gray-600 hover:text-amber-700 transition">
+                        <i class="fas fa-shopping-cart text-lg"></i>
+                        <span class="cart-badge" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <main class="container">
-        <h2 class="section-title">Today's Fresh Sweets</h2>
-
-        <div class="grid">
-
-            <div class="card">
-                <div class="card-img-box">
-                    <img src="https://www.archanaskitchen.com/images/archanaskitchen/1-Author/moulidhar_ganesh/Kala_Jamun_Recipe_with_Khoya_or_Mawa-1.jpg" alt="Real Gulab Jamun">
+    <!-- Hero Section -->
+    <section class="hero-gradient py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-block bg-white px-4 py-2 rounded-full text-sm font-medium text-amber-800 mb-6 shadow-sm">
+                        <i class="fas fa-star text-yellow-500"></i> India's Finest Traditional Sweets
+                    </div>
+                    <h1 class="font-display text-5xl md:text-6xl font-bold text-amber-900 mb-6 leading-tight">
+                        Authentic Mithai, <span class="text-amber-600">Delivered Fresh</span>
+                    </h1>
+                    <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                        Experience the rich flavors of traditional Indian sweets, handcrafted with premium ingredients and time-honored recipes passed down through generations.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="btn-primary text-white px-8 py-3 rounded-lg font-medium shadow-lg">
+                            <i class="fas fa-shopping-bag mr-2"></i> Shop Now
+                        </button>
+                        <button class="bg-white text-amber-800 px-8 py-3 rounded-lg font-medium shadow-md hover:shadow-lg transition">
+                            <i class="fas fa-gift mr-2"></i> Gift Boxes
+                        </button>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h3 class="sweet-title">Kala Jamun</h3>
-                    <p class="sweet-desc">Dark, rich fried dumplings made of khoya soaked in thick sugar syrup. A robust classic.</p>
-                    <div class="card-footer">
-                        <div class="price-block">
-                            <span class="price">₹480</span>
-                            <span class="unit">per kg</span>
+                <div class="relative">
+                    <img src="/placeholder.svg?height=500&width=500" alt="Indian Sweets" class="rounded-2xl shadow-2xl">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">100% Fresh</p>
+                                <p class="text-sm text-gray-600">Made Daily</p>
+                            </div>
                         </div>
-                        <button class="add-btn"><i class="fas fa-plus"></i> Add</button>
                     </div>
                 </div>
             </div>
-
-            <div class="card">
-                <div class="card-img-box">
-                    <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2013/11/motichoor-ladoo-1.jpg" alt="Real Motichoor Ladoo">
-                </div>
-                <div class="card-content">
-                    <h3 class="sweet-title">Motichoor Ladoo</h3>
-                    <p class="sweet-desc">Made from very fine gram flour pearls (boondi) fried in pure ghee. Melt in the mouth texture.</p>
-                    <div class="card-footer">
-                        <div class="price-block">
-                            <span class="price">₹550</span>
-                            <span class="unit">per kg</span>
-                        </div>
-                        <button class="add-btn"><i class="fas fa-plus"></i> Add</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-img-box">
-                    <img src="https://www.whiskaffair.com/wp-content/uploads/2020/10/Kaju-Katli-2-3.jpg" alt="Real Kaju Katli">
-                </div>
-                <div class="card-content">
-                    <h3 class="sweet-title">Premium Kaju Katli</h3>
-                    <p class="sweet-desc">Thin diamond slices of rich cashew fudge, topped with edible silver leaf. Moderate sweetness.</p>
-                    <div class="card-footer">
-                        <div class="price-block">
-                            <span class="price">₹990</span>
-                            <span class="unit">per kg</span>
-                        </div>
-                        <button class="add-btn"><i class="fas fa-plus"></i> Add</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-img-box">
-                    <img src="https://www.cubesnjuliennes.com/wp-content/uploads/2020/09/Instant-Jalebi-Recipe.jpg" alt="Real Jalebi">
-                </div>
-                <div class="card-content">
-                    <h3 class="sweet-title">Kesar Jalebi</h3>
-                    <p class="sweet-desc">Thin, crispy swirls fermented for tanginess, fried golden and dipped in saffron syrup.</p>
-                    <div class="card-footer">
-                        <div class="price-block">
-                            <span class="price">₹320</span>
-                            <span class="unit">per kg</span>
-                        </div>
-                        <button class="add-btn"><i class="fas fa-plus"></i> Add</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-img-box">
-                    <img src="https://www.cookwithmanali.com/wp-content/uploads/2014/07/Rasmalai-Recipe-500x500.jpg" alt="Real Rasmalai">
-                </div>
-                <div class="card-content">
-                    <h3 class="sweet-title">Kesar Rasmalai</h3>
-                    <p class="sweet-desc">Soft cottage cheese discs dunked in rich, creamy, saffron-flavored milk rabri.</p>
-                    <div class="card-footer">
-                        <div class="price-block">
-                            <span class="price">₹600</span>
-                            <span class="unit">per kg</span>
-                        </div>
-                        <button class="add-btn"><i class="fas fa-plus"></i> Add</button>
-                    </div>
-                </div>
-            </div>
-
-             <div class="card">
-                <div class="card-img-box">
-                    <img src="https://thumbs.dreamstime.com/b/indian-sweets-mithai-plate-64725985.jpg" alt="Real Mixed Sweets Platter">
-                </div>
-                <div class="card-content">
-                    <h3 class="sweet-title">Festival Mix Platter</h3>
-                    <p class="sweet-desc">An assorted selection of our finest dry and syrup-based sweets, perfect for gifting.</p>
-                    <div class="card-footer">
-                        <div class="price-block">
-                            <span class="price">₹1200</span>
-                            <span class="unit">per box</span>
-                        </div>
-                        <button class="add-btn" style="background-color: var(--dark);"><i class="fas fa-gift"></i> Buy</button>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </main>
+    </section>
 
+    <!-- Category Filter -->
+    <section class="py-8 bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex gap-3 overflow-x-auto pb-2">
+                <button class="category-pill active px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">
+                    All Sweets
+                </button>
+                <button class="category-pill px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">
+                    Milk Based
+                </button>
+                <button class="category-pill px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">
+                    Dry Fruits
+                </button>
+                <button class="category-pill px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">
+                    Festive Special
+                </button>
+                <button class="category-pill px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">
+                    Sugar Free
+                </button>
+                <button class="category-pill px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">
+                    Best Sellers
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 bg-gradient-to-b from-white to-amber-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-amber-900 mb-4">Our Premium Collection</h2>
+                <p class="text-gray-600 text-lg">Handcrafted with love, delivered with care</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Product Card 1 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="/placeholder.svg?height=280&width=280" alt="Gulab Jamun" class="w-full h-64 object-cover">
+                        <span class="badge-special absolute top-4 right-4 px-3 py-1 text-xs font-bold text-amber-900 rounded-full">
+                            BESTSELLER
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-xl font-semibold text-gray-800 mb-2">Gulab Jamun</h3>
+                        <p class="text-sm text-gray-600 mb-3">Soft milk dumplings soaked in rose-scented syrup</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="price-tag px-3 py-1 rounded-lg text-lg font-bold">₹480/kg</span>
+                            </div>
+                            <div class="flex items-center text-yellow-500 text-sm">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-gray-700 font-medium">4.9</span>
+                            </div>
+                        </div>
+                        <button onclick="addToCart('Gulab Jamun', 480)" class="w-full btn-primary text-white py-3 rounded-lg font-medium">
+                            <i class="fas fa-cart-plus mr-2"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="/placeholder.svg?height=280&width=280" alt="Kaju Katli" class="w-full h-64 object-cover">
+                        <span class="badge-special absolute top-4 right-4 px-3 py-1 text-xs font-bold text-amber-900 rounded-full">
+                            PREMIUM
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-xl font-semibold text-gray-800 mb-2">Kaju Katli</h3>
+                        <p class="text-sm text-gray-600 mb-3">Diamond-shaped cashew fudge with silver leaf</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="price-tag px-3 py-1 rounded-lg text-lg font-bold">₹980/kg</span>
+                            </div>
+                            <div class="flex items-center text-yellow-500 text-sm">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-gray-700 font-medium">5.0</span>
+                            </div>
+                        </div>
+                        <button onclick="addToCart('Kaju Katli', 980)" class="w-full btn-primary text-white py-3 rounded-lg font-medium">
+                            <i class="fas fa-cart-plus mr-2"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="/placeholder.svg?height=280&width=280" alt="Jalebi" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-xl font-semibold text-gray-800 mb-2">Jalebi</h3>
+                        <p class="text-sm text-gray-600 mb-3">Crispy spiral fritters soaked in saffron syrup</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="price-tag px-3 py-1 rounded-lg text-lg font-bold">₹380/kg</span>
+                            </div>
+                            <div class="flex items-center text-yellow-500 text-sm">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-gray-700 font-medium">4.8</span>
+                            </div>
+                        </div>
+                        <button onclick="addToCart('Jalebi', 380)" class="w-full btn-primary text-white py-3 rounded-lg font-medium">
+                            <i class="fas fa-cart-plus mr-2"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="/placeholder.svg?height=280&width=280" alt="Besan Ladoo" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-xl font-semibold text-gray-800 mb-2">Besan Ladoo</h3>
+                        <p class="text-sm text-gray-600 mb-3">Traditional gram flour balls with ghee and cardamom</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="price-tag px-3 py-1 rounded-lg text-lg font-bold">₹420/kg</span>
+                            </div>
+                            <div class="flex items-center text-yellow-500 text-sm">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-gray-700 font-medium">4.7</span>
+                            </div>
+                        </div>
+                        <button onclick="addToCart('Besan Ladoo', 420)" class="w-full btn-primary text-white py-3 rounded-lg font-medium">
+                            <i class="fas fa-cart-plus mr-2"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="/placeholder.svg?height=280&width=280" alt="Rasgulla" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-xl font-semibold text-gray-800 mb-2">Rasgulla</h3>
+                        <p class="text-sm text-gray-600 mb-3">Spongy cottage cheese balls in light sugar syrup</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="price-tag px-3 py-1 rounded-lg text-lg font-bold">₹360/kg</span>
+                            </div>
+                            <div class="flex items-center text-yellow-500 text-sm">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-gray-700 font-medium">4.9</span>
+                            </div>
+                        </div>
+                        <button onclick="addToCart('Rasgulla', 360)" class="w-full btn-primary text-white py-3 rounded-lg font-medium">
+                            <i class="fas fa-cart-plus mr-2"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="/placeholder.svg?height=280&width=280" alt="Milk Cake" class="w-full h-64 object-cover">
+                        <span class="badge-special absolute top-4 right-4 px-3 py-1 text-xs font-bold text-amber-900 rounded-full">
+                            TRENDING
+                        </span>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-xl font-semibold text-gray-800 mb-2">Milk Cake</h3>
+                        <p class="text-sm text-gray-600 mb-3">Dense sweetened milk solids with cardamom flavor</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="price-tag px-3 py-1 rounded-lg text-lg font-bold">₹540/kg</span>
+                            </div>
+                            <div class="flex items-center text-yellow-500 text-sm">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-gray-700 font-medium">4.8</span>
+                            </div>
+                        </div>
+                        <button onclick="addToCart('Milk Cake', 540)" class="w-full btn-primary text-white py-3 rounded-lg font-medium">
+                            <i class="fas fa-cart-plus mr-2"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 7 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="/placeholder.svg?height=280&width=280" alt="Mixed Barfi" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-xl font-semibold text-gray-800 mb-2">Mixed Barfi</h3>
+                        <p class="text-sm text-gray-600 mb-3">Assortment of flavored milk fudge - pistachio, rose, coconut</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="price-tag px-3 py-1 rounded-lg text-lg font-bold">₹620/kg</span>
+                            </div>
+                            <div class="flex items-center text-yellow-500 text-sm">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-gray-700 font-medium">4.9</span>
+                            </div>
+                        </div>
+                        <button onclick="addToCart('Mixed Barfi', 620)" class="w-full btn-primary text-white py-3 rounded-lg font-medium">
+                            <i class="fas fa-cart-plus mr-2"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Card 8 -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                    <div class="relative">
+                        <img src="/placeholder.svg?height=280&width=280" alt="Soan Papdi" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-display text-xl font-semibold text-gray-800 mb-2">Soan Papdi</h3>
+                        <p class="text-sm text-gray-600 mb-3">Flaky, crisp layers of gram flour and ghee</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="price-tag px-3 py-1 rounded-lg text-lg font-bold">₹440/kg</span>
+                            </div>
+                            <div class="flex items-center text-yellow-500 text-sm">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 text-gray-700 font-medium">4.6</span>
+                            </div>
+                        </div>
+                        <button onclick="addToCart('Soan Papdi', 440)" class="w-full btn-primary text-white py-3 rounded-lg font-medium">
+                            <i class="fas fa-cart-plus mr-2"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-truck text-amber-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Free Delivery</h3>
+                    <p class="text-sm text-gray-600">On orders above ₹500</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-leaf text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">100% Fresh</h3>
+                    <p class="text-sm text-gray-600">Made fresh daily</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Secure Payment</h3>
+                    <p class="text-sm text-gray-600">Safe & encrypted</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-2">24/7 Support</h3>
+                    <p class="text-sm text-gray-600">Always here to help</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-amber-900 text-amber-50 pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-cookie-bite text-white text-xl"></i>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold">Mithai Palace</h3>
+                    </div>
+                    <p class="text-amber-200 text-sm leading-relaxed">
+                        Serving authentic Indian sweets since 1985. Handcrafted with love and traditional recipes.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-amber-200 text-sm">
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Our Story</a></li>
+                        <li><a href="#" class="hover:text-white transition">Wholesale</a></li>
+                        <li><a href="#" class="hover:text-white transition">Franchise</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Customer Care</h4>
+                    <ul class="space-y-2 text-amber-200 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition">Track Order</a></li>
+                        <li><a href="#" class="hover:text-white transition">Returns</a></li>
+                        <li><a href="#" class="hover:text-white transition">Shipping Info</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-3 text-amber-200 text-sm">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-map-marker-alt mt-1"></i>
+                            <span>123 Mithai Street, Mumbai, Maharashtra 400001</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-envelope"></i>
+                            <span>order@mithaipalace.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-amber-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-amber-200 text-sm">© 2025 Mithai Palace. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 bg-amber-800 rounded-full flex items-center justify-center hover:bg-amber-700 transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-amber-800 rounded-full flex items-center justify-center hover:bg-amber-700 transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-amber-800 rounded-full flex items-center justify-center hover:bg-amber-700 transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-amber-800 rounded-full flex items-center justify-center hover:bg-amber-700 transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-8 relative">
+            <button onclick="toggleLogin()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+            <h2 class="font-display text-3xl font-bold text-amber-900 mb-2">Welcome Back</h2>
+            <p class="text-gray-600 mb-6">Login to your account</p>
+            <form>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent" placeholder="your@email.com">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent" placeholder="••••••••">
+                </div>
+                <button type="submit" class="w-full btn-primary text-white py-3 rounded-lg font-medium mb-4">
+                    Login
+                </button>
+                <p class="text-center text-sm text-gray-600">
+                    Don't have an account? <a href="#" class="text-amber-700 font-medium hover:underline">Sign up</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50">
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl">
+            <div class="flex flex-col h-full">
+                <div class="flex items-center justify-between p-6 border-b">
+                    <h3 class="font-display text-2xl font-bold text-amber-900">Shopping Cart</h3>
+                    <button onclick="toggleCart()" class="text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div id="cartItems" class="flex-1 overflow-y-auto p-6">
+                    <div class="text-center py-12 text-gray-500">
+                        <i class="fas fa-shopping-cart text-6xl mb-4 text-gray-300"></i>
+                        <p class="text-lg">Your cart is empty</p>
+                        <p class="text-sm">Add some delicious sweets!</p>
+                    </div>
+                </div>
+                <div class="border-t p-6">
+                    <div class="flex justify-between mb-4 text-lg font-semibold">
+                        <span>Subtotal:</span>
+                        <span id="cartTotal" class="text-amber-700">₹0</span>
+                    </div>
+                    <button class="w-full btn-primary text-white py-4 rounded-lg font-medium text-lg">
+                        Proceed to Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function toggleLogin() {
+            const modal = document.getElementById('loginModal');
+            modal.classList.toggle('hidden');
+        }
+
+        function toggleCart() {
+            const sidebar = document.getElementById('cartSidebar');
+            sidebar.classList.toggle('hidden');
+        }
+
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            updateCart();
+            
+            // Show success feedback
+            const btn = event.target;
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check mr-2"></i> Added!';
+            btn.classList.add('bg-green-600');
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.classList.remove('bg-green-600');
+            }, 1000);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function updateQuantity(index, change) {
+            cart[index].quantity += change;
+            if (cart[index].quantity <= 0) {
+                removeFromCart(index);
+            } else {
+                updateCart();
+            }
+        }
+
+        function updateCart() {
+            const cartCount = document.getElementById('cartCount');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotal = document.getElementById('cartTotal');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            cartCount.textContent = totalItems;
+            cartTotal.textContent = `₹${totalPrice}`;
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="text-center py-12 text-gray-500">
+                        <i class="fas fa-shopping-cart text-6xl mb-4 text-gray-300"></i>
+                        <p class="text-lg">Your cart is empty</p>
+                        <p class="text-sm">Add some delicious sweets!</p>
+                    </div>
+                `;
+            } else {
+                cartItems.innerHTML = cart.map((item, index) => `
+                    <div class="flex gap-4 mb-4 pb-4 border-b">
+                        <div class="w-20 h-20 bg-amber-100 rounded-lg"></div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-gray-800">${item.name}</h4>
+                            <p class="text-amber-700 font-medium">₹${item.price}/kg</p>
+                            <div class="flex items-center gap-3 mt-2">
+                                <button onclick="updateQuantity(${index}, -1)" class="quantity-btn">
+                                    <i class="fas fa-minus text-xs"></i>
+                                </button>
+                                <span class="font-medium">${item.quantity}</span>
+                                <button onclick="updateQuantity(${index}, 1)" class="quantity-btn">
+                                    <i class="fas fa-plus text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Close modals on outside click
+        document.getElementById('loginModal').addEventListener('click', function(e) {
+            if (e.target === this) toggleLogin();
+        });
+        document.getElementById('cartSidebar').addEventListener('click', function(e) {
+            if (e.target === this) toggleCart();
+        });
+    </script>
 </body>
-</html> 
+</html>
