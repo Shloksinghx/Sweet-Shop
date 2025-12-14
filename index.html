@@ -9,29 +9,20 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #fff8f0;
-      color: #333;
+      background: #fff7f0;
     }
 
     header {
       background: linear-gradient(135deg, #ff7a18, #ffb347);
-      padding: 30px;
-      text-align: center;
       color: white;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    header p {
-      margin-top: 10px;
-      font-size: 1.1rem;
+      padding: 25px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
     }
 
     .container {
-      padding: 40px;
+      padding: 30px;
       max-width: 1200px;
       margin: auto;
     }
@@ -44,14 +35,14 @@
 
     .card {
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       overflow: hidden;
       transition: transform 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
     }
 
     .card img {
@@ -62,137 +53,84 @@
 
     .card-body {
       padding: 15px;
+      text-align: center;
     }
 
     .card-body h3 {
-      margin: 0 0 8px;
-      font-size: 1.2rem;
+      margin: 10px 0 5px;
+      color: #333;
     }
 
     .price {
+      color: #e65100;
       font-weight: bold;
-      color: #ff7a18;
-      font-size: 1.1rem;
+      font-size: 18px;
     }
 
     footer {
-      text-align: center;
-      padding: 20px;
-      background: #222;
-      color: #aaa;
       margin-top: 40px;
+      padding: 15px;
+      text-align: center;
+      background: #ffe0b2;
+      font-size: 14px;
     }
   </style>
 </head>
+
 <body>
 
 <header>
-  <h1>🍬 Sweet Shop Management System</h1>
-  <p>Authentic Indian Sweets – Fresh & Delicious</p>
+  🍬 Sweet Shop Management System
 </header>
 
 <div class="container">
   <div class="grid">
 
-    <!-- 1 -->
-    <div class="card">
-      <img src="https://i.imgur.com/4M7IWwP.jpg">
-      <div class="card-body">
-        <h3>Gulab Jamun</h3>
-        <div class="price">₹180 / kg</div>
-      </div>
-    </div>
+    <!-- Sweet Cards -->
+    <script>
+      const sweets = [
+        ["Gulab Jamun", 120, "https://upload.wikimedia.org/wikipedia/commons/7/7b/Gulab_jamun_%28Gibraltar%29.jpg"],
+        ["Rasgulla", 100, "https://upload.wikimedia.org/wikipedia/commons/1/1e/Rasgulla.jpg"],
+        ["Kaju Katli", 450, "https://upload.wikimedia.org/wikipedia/commons/4/4b/Kaju_katli.jpg"],
+        ["Ladoo", 180, "https://upload.wikimedia.org/wikipedia/commons/7/7d/Motichoor_ladoo.jpg"],
+        ["Jalebi", 150, "https://upload.wikimedia.org/wikipedia/commons/9/9c/Jalebi.jpg"],
+        ["Barfi", 220, "https://upload.wikimedia.org/wikipedia/commons/0/09/Barfi.jpg"],
+        ["Peda", 260, "https://upload.wikimedia.org/wikipedia/commons/6/6f/Peda_sweet.jpg"],
+        ["Soan Papdi", 140, "https://upload.wikimedia.org/wikipedia/commons/2/2b/Soan_Papdi.jpg"],
+        ["Mysore Pak", 300, "https://upload.wikimedia.org/wikipedia/commons/5/5f/Mysore_Pak.jpg"],
+        ["Rasmalai", 200, "https://upload.wikimedia.org/wikipedia/commons/6/6a/Rasmalai.jpg"],
+        ["Malpua", 180, "https://upload.wikimedia.org/wikipedia/commons/d/dc/Malpua.jpg"],
+        ["Cham Cham", 160, "https://upload.wikimedia.org/wikipedia/commons/3/3f/Cham_cham.jpg"],
+        ["Sandesh", 240, "https://upload.wikimedia.org/wikipedia/commons/1/19/Sandesh_sweet.jpg"],
+        ["Imarti", 170, "https://upload.wikimedia.org/wikipedia/commons/3/35/Imarti.jpg"],
+        ["Kalakand", 280, "https://upload.wikimedia.org/wikipedia/commons/5/58/Kalakand.jpg"],
+        ["Halwa", 130, "https://upload.wikimedia.org/wikipedia/commons/4/4b/Gajar_ka_halwa.jpg"],
+        ["Balushahi", 190, "https://upload.wikimedia.org/wikipedia/commons/6/6e/Balushahi.jpg"],
+        ["Chikki", 90, "https://upload.wikimedia.org/wikipedia/commons/9/91/Peanut_chikki.jpg"],
+        ["Modak", 220, "https://upload.wikimedia.org/wikipedia/commons/3/3e/Ukadiche_modak.jpg"],
+        ["Basundi", 250, "https://upload.wikimedia.org/wikipedia/commons/8/8f/Basundi.jpg"]
+      ];
 
-    <!-- 2 -->
-    <div class="card">
-      <img src="https://i.imgur.com/2aJvBzX.jpg">
-      <div class="card-body">
-        <h3>Rasgulla</h3>
-        <div class="price">₹160 / kg</div>
-      </div>
-    </div>
+      const grid = document.querySelector(".grid");
 
-    <!-- 3 -->
-    <div class="card">
-      <img src="https://i.imgur.com/nvKZz0g.jpg">
-      <div class="card-body">
-        <h3>Rasmalai</h3>
-        <div class="price">₹220 / kg</div>
-      </div>
-    </div>
-
-    <!-- 4 -->
-    <div class="card">
-      <img src="https://i.imgur.com/3E6kM1a.jpg">
-      <div class="card-body">
-        <h3>Kaju Katli</h3>
-        <div class="price">₹850 / kg</div>
-      </div>
-    </div>
-
-    <!-- 5 -->
-    <div class="card">
-      <img src="https://i.imgur.com/fxgRzFY.jpg">
-      <div class="card-body">
-        <h3>Ladoo</h3>
-        <div class="price">₹300 / kg</div>
-      </div>
-    </div>
-
-    <!-- 6 -->
-    <div class="card">
-      <img src="https://i.imgur.com/JN0H7wy.jpg">
-      <div class="card-body">
-        <h3>Jalebi</h3>
-        <div class="price">₹240 / kg</div>
-      </div>
-    </div>
-
-    <!-- 7 -->
-    <div class="card">
-      <img src="https://i.imgur.com/YbYQmYw.jpg">
-      <div class="card-body">
-        <h3>Soan Papdi</h3>
-        <div class="price">₹350 / kg</div>
-      </div>
-    </div>
-
-    <!-- 8 -->
-    <div class="card">
-      <img src="https://i.imgur.com/rCj3M2c.jpg">
-      <div class="card-body">
-        <h3>Milk Cake</h3>
-        <div class="price">₹420 / kg</div>
-      </div>
-    </div>
-
-    <!-- 9 -->
-    <div class="card">
-      <img src="https://i.imgur.com/qqo7Y1b.jpg">
-      <div class="card-body">
-        <h3>Kalakand</h3>
-        <div class="price">₹450 / kg</div>
-      </div>
-    </div>
-
-    <!-- 10 -->
-    <div class="card">
-      <img src="https://i.imgur.com/3dKkZB6.jpg">
-      <div class="card-body">
-        <h3>Barfi</h3>
-        <div class="price">₹500 / kg</div>
-      </div>
-    </div>
-
-    <!-- Remaining sweets (11–20) -->
-    <!-- You can duplicate cards and change names/prices -->
-    <!-- Peda, Cham Cham, Sandesh, Modak, Halwa, Balushahi, Mysore Pak, Imarti, Shrikhand, Basundi -->
+      sweets.forEach(s => {
+        grid.innerHTML += `
+          <div class="card">
+            <img src="${s[2]}" alt="${s[0]}">
+            <div class="card-body">
+              <h3>${s[0]}</h3>
+              <div class="price">₹ ${s[1]} / plate</div>
+            </div>
+          </div>
+        `;
+      });
+    </script>
 
   </div>
 </div>
 
 <footer>
-  © 2025 Sweet Shop Management System | TDD Kata Project
+  © 2025 Sweet Shop Management System | TDD Kata | Antigravity
 </footer>
 
 </body>
