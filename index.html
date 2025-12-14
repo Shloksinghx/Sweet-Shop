@@ -1,256 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Halwai – Authentic Indian Sweets</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #f6f6f6;
-  color: #333;
-}
-
-/* NAVBAR */
-header {
-  background: #fff;
-  padding: 16px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: #c47a00;
-}
-
-.logo span {
-  font-weight: 400;
-  font-size: 16px;
-  color: #888;
-}
-
-nav a {
-  margin: 0 18px;
-  text-decoration: none;
-  color: #444;
-  font-weight: 500;
-}
-
-.icons span {
-  margin-left: 18px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-/* HERO */
-.hero {
-  height: 420px;
-  background: linear-gradient(
-      rgba(0,0,0,0.35),
-      rgba(0,0,0,0.35)
-    ),
-    url("https://images.unsplash.com/photo-1625396819881-207eaf1d8a65?q=80&w=1600") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  padding: 0 80px;
-}
-
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  color: #fff;
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  color: #eee;
-  font-size: 18px;
-}
-
-/* SECTION TITLE */
-.section {
-  padding: 60px 70px;
-}
-
-.section h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  color: #c47a00;
-  margin-bottom: 40px;
-  position: relative;
-}
-
-.section h2::after {
-  content: '';
-  width: 70px;
-  height: 3px;
-  background: #c47a00;
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 30px;
-}
-
-/* CARD */
-.card {
-  background: #fff;
-  border-radius: 14px;
-  padding: 15px;
-  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card img {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-.card h3 {
-  margin: 15px 0 6px;
-  font-size: 18px;
-}
-
-.card p {
-  font-size: 13px;
-  color: #777;
-  line-height: 1.5;
-}
-
-.price {
-  margin-top: 12px;
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.unit {
-  font-size: 12px;
-  color: #777;
-}
-
-button {
-  margin-top: 14px;
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  background: #d18b00;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-button.alt {
-  background: #b97400;
-}
-</style>
+  <meta charset="UTF-8" />
+  <title>Sweet Shop Management System</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-<header>
-  <div class="logo">Halwai <span>– Authentic Indian Sweets</span></div>
+<header class="navbar">
+  <div class="logo">🍬 Sweet Management</div>
   <nav>
+    <a href="#">Home</a>
     <a href="#">Sweets</a>
-    <a href="#">Savories</a>
-    <a href="#">About Us</a>
+    <a href="#">Cart</a>
+    <a href="#">Help</a>
+    <a class="login">Login</a>
   </nav>
-  <div class="icons">
-    <span>🔍</span>
-    <span>🛒</span>
-    <span>❤️</span>
-    <span>👤</span>
-  </div>
 </header>
 
 <section class="hero">
-  <div>
-    <h1>Amrit Mithai Bhandar</h1>
-    <p>Handcrafted Tradition & Love</p>
-  </div>
+  <h1>Authentic Indian Sweets</h1>
+  <p>Fresh • Hygienic • Per Kg Pricing</p>
 </section>
 
-<section class="section">
-  <h2>Today’s Fresh Sweets</h2>
+<section class="sweets">
+  <h2>Today's Fresh Sweets</h2>
 
   <div class="grid">
+
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1631515242808-497c3fbd3972" />
-      <h3>Kala Jamun</h3>
-      <p>Rich milk solids soaked in aromatic sugar syrup.</p>
+      <img src="images/gulab-jamun.jpg">
+      <h3>Gulab Jamun</h3>
+      <p>₹420 / kg</p>
+      <button>Add to Cart</button>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1625398407796-82650a8c7b94" />
-      <h3>Premium Kaju Katli</h3>
-      <p>Thin cashew layers with authentic silver leaf.</p>
+      <img src="images/kaju-katli.jpg">
+      <h3>Kaju Katli</h3>
+      <p>₹980 / kg</p>
+      <button>Add to Cart</button>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950" />
-      <h3>Maju Kame</h3>
-      <p>Soft milk-based delight with rich flavor.</p>
+      <img src="images/rasgulla.jpg">
+      <h3>Rasgulla</h3>
+      <p>₹380 / kg</p>
+      <button>Add to Cart</button>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60" />
+      <img src="images/jalebi.jpg">
       <h3>Jalebi</h3>
-      <p>Crispy golden spirals dipped in saffron syrup.</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1620884972563-0e1e74e0e1b8" />
-      <h3>Sese Jemun</h3>
-      <div class="price">₹480 <span class="unit">/kg</span></div>
+      <p>₹300 / kg</p>
       <button>Add to Cart</button>
     </div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1600628422019-35d7b6f3f56a" />
-      <h3>Kesar Ramet</h3>
-      <div class="price">₹480 <span class="unit">/kg</span></div>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1601050690590-4e9f4d6fdc63" />
-      <h3>Bengali Rasbhog</h3>
-      <div class="price">₹70 <span class="unit">/pc</span></div>
-      <button>Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1622621746668-59fb299bc4d8" />
-      <h3>Festival Mix Platter</h3>
-      <div class="price">₹250</div>
-      <button class="alt">Buy Gift Box</button>
-    </div>
   </div>
 </section>
+
+<footer>
+  © 2025 Sweet Shop Management System
+</footer>
 
 </body>
 </html>
