@@ -2,28 +2,198 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sweet Shop</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Sweet Shop Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8f0;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff7a18, #ffb347);
+      padding: 30px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
+
+    .container {
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 15px;
+    }
+
+    .card-body h3 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #ff7a18;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: #aaa;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>🍬 Sweet Shop Management System</h1>
-    <p>Frontend Demo (GitHub Pages)</p>
-  </header>
 
-  <main>
-    <section>
-      <h2>Available Sweets</h2>
-      <ul>
-        <li>Ladoo – ₹20</li>
-        <li>Barfi – ₹30</li>
-        <li>Jalebi – ₹25</li>
-      </ul>
-    </section>
+<header>
+  <h1>🍬 Sweet Shop Management System</h1>
+  <p>Authentic Indian Sweets – Fresh & Delicious</p>
+</header>
 
-    <button>Purchase</button>
-  </main>
+<div class="container">
+  <div class="grid">
 
-  <script src="script.js"></script>
+    <!-- 1 -->
+    <div class="card">
+      <img src="https://i.imgur.com/4M7IWwP.jpg">
+      <div class="card-body">
+        <h3>Gulab Jamun</h3>
+        <div class="price">₹180 / kg</div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="card">
+      <img src="https://i.imgur.com/2aJvBzX.jpg">
+      <div class="card-body">
+        <h3>Rasgulla</h3>
+        <div class="price">₹160 / kg</div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="card">
+      <img src="https://i.imgur.com/nvKZz0g.jpg">
+      <div class="card-body">
+        <h3>Rasmalai</h3>
+        <div class="price">₹220 / kg</div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="card">
+      <img src="https://i.imgur.com/3E6kM1a.jpg">
+      <div class="card-body">
+        <h3>Kaju Katli</h3>
+        <div class="price">₹850 / kg</div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="card">
+      <img src="https://i.imgur.com/fxgRzFY.jpg">
+      <div class="card-body">
+        <h3>Ladoo</h3>
+        <div class="price">₹300 / kg</div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="card">
+      <img src="https://i.imgur.com/JN0H7wy.jpg">
+      <div class="card-body">
+        <h3>Jalebi</h3>
+        <div class="price">₹240 / kg</div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="card">
+      <img src="https://i.imgur.com/YbYQmYw.jpg">
+      <div class="card-body">
+        <h3>Soan Papdi</h3>
+        <div class="price">₹350 / kg</div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="card">
+      <img src="https://i.imgur.com/rCj3M2c.jpg">
+      <div class="card-body">
+        <h3>Milk Cake</h3>
+        <div class="price">₹420 / kg</div>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="card">
+      <img src="https://i.imgur.com/qqo7Y1b.jpg">
+      <div class="card-body">
+        <h3>Kalakand</h3>
+        <div class="price">₹450 / kg</div>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="card">
+      <img src="https://i.imgur.com/3dKkZB6.jpg">
+      <div class="card-body">
+        <h3>Barfi</h3>
+        <div class="price">₹500 / kg</div>
+      </div>
+    </div>
+
+    <!-- Remaining sweets (11–20) -->
+    <!-- You can duplicate cards and change names/prices -->
+    <!-- Peda, Cham Cham, Sandesh, Modak, Halwa, Balushahi, Mysore Pak, Imarti, Shrikhand, Basundi -->
+
+  </div>
+</div>
+
+<footer>
+  © 2025 Sweet Shop Management System | TDD Kata Project
+</footer>
+
 </body>
 </html>
