@@ -1,68 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Sweet Shop Management System</title>
-  <link rel="stylesheet" href="style.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mithai Shop - Sweet Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-<header class="navbar">
-  <div class="logo">🍬 Sweet Management</div>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Sweets</a>
-    <a href="#">Cart</a>
-    <a href="#">Help</a>
-    <a class="login">Login</a>
-  </nav>
-</header>
+    <header class="main-header">
+        <div class="logo">
+            <i class="fas fa-candy-cane"></i> The Mithai Shop
+        </div>
+        <nav class="main-nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#specials">Specials</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="utility-links">
+            <a href="#login"><i class="fas fa-user"></i> Login</a>
+            <a href="#cart" class="cart-link"><i class="fas fa-shopping-cart"></i> Cart (3)</a>
+        </div>
+    </header>
 
-<section class="hero">
-  <h1>Authentic Indian Sweets</h1>
-  <p>Fresh • Hygienic • Per Kg Pricing</p>
-</section>
+    <main class="sweet-catalog">
+        <aside class="sidebar">
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="#">Milk-Based</a></li>
+                <li><a href="#">Ghee-Fried</a></li>
+                <li><a href="#">Bengali Sweets</a></li>
+                <li><a href="#">Dry Fruits</a></li>
+            </ul>
 
-<section class="sweets">
-  <h2>Today's Fresh Sweets</h2>
+            <div class="search-box">
+                <input type="text" placeholder="Search Sweets...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </aside>
 
-  <div class="grid">
+        <section class="product-grid">
+            <div class="product-card">
+                <img src="placeholders/gulab-jamun.jpg" alt="Realistic photo of Gulab Jamun">
+                <div class="product-info">
+                    <h4>Gulab Jamun</h4>
+                    <p class="price">₹ 480 / kg</p>
+                    <p class="description">Soft, spongy milk solids soaked in a rose-flavored sugar syrup.</p>
+                    <button class="add-to-cart-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                </div>
+            </div>
 
-    <div class="card">
-      <img src="images/gulab-jamun.jpg">
-      <h3>Gulab Jamun</h3>
-      <p>₹420 / kg</p>
-      <button>Add to Cart</button>
-    </div>
+            <div class="product-card">
+                <img src="placeholders/kaju-katli.jpg" alt="Realistic photo of Kaju Katli">
+                <div class="product-info">
+                    <h4>Kaju Katli</h4>
+                    <p class="price">₹ 920 / kg</p>
+                    <p class="description">Diamond-shaped cashew fudge, typically covered in edible silver foil.</p>
+                    <button class="add-to-cart-btn"><i class="fas fa-plus"></i> Add to Cart</button>
+                </div>
+            </div>
 
-    <div class="card">
-      <img src="images/kaju-katli.jpg">
-      <h3>Kaju Katli</h3>
-      <p>₹980 / kg</p>
-      <button>Add to Cart</button>
-    </div>
+            </section>
+    </main>
 
-    <div class="card">
-      <img src="images/rasgulla.jpg">
-      <h3>Rasgulla</h3>
-      <p>₹380 / kg</p>
-      <button>Add to Cart</button>
-    </div>
-
-    <div class="card">
-      <img src="images/jalebi.jpg">
-      <h3>Jalebi</h3>
-      <p>₹300 / kg</p>
-      <button>Add to Cart</button>
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  © 2025 Sweet Shop Management System
-</footer>
+    <footer class="main-footer">
+        <p>&copy; 2025 The Mithai Shop. All rights reserved.</p>
+        <nav class="footer-nav">
+            <a href="#accounts">My Account</a>
+            <a href="#orders">My Orders</a>
+            <a href="#help">Help & Support</a>
+            <a href="#privacy">Privacy Policy</a>
+        </nav>
+    </footer>
 
 </body>
 </html>
