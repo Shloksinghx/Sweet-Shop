@@ -5,219 +5,212 @@
   <title>Sweet Shop Management</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Segoe UI", sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: #f8f9fa;
+      background: #fff8f0;
       color: #333;
     }
 
-    /* NAVBAR */
-    header {
-      background: #7b1fa2;
+    /* Navbar */
+    nav {
+      background: #8b0000;
       color: white;
-      padding: 15px 30px;
+      padding: 15px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    header h1 {
-      font-size: 22px;
+    nav h2 {
       font-weight: 600;
     }
 
-    nav a {
-      color: white;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: 500;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
     }
 
-    nav a:hover {
+    nav ul li {
+      cursor: pointer;
+    }
+
+    nav ul li:hover {
       text-decoration: underline;
     }
 
-    /* HERO */
-    .hero {
+    /* Header */
+    header {
       text-align: center;
       padding: 40px 20px;
     }
 
-    .hero h2 {
-      font-size: 32px;
+    header h1 {
+      color: #8b0000;
       margin-bottom: 10px;
-      color: #7b1fa2;
     }
 
-    .hero p {
-      font-size: 16px;
-      color: #555;
-    }
-
-    /* GRID */
+    /* Sweet Grid */
     .container {
-      padding: 30px;
-      max-width: 1200px;
-      margin: auto;
+      padding: 30px 60px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 25px;
     }
 
     .card {
       background: white;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       overflow: hidden;
-      transition: transform 0.2s;
+      transition: transform 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
     }
 
     .card img {
       width: 100%;
-      height: 180px;
+      height: 160px;
       object-fit: cover;
     }
 
-    .card-content {
+    .card-body {
       padding: 15px;
     }
 
-    .card-content h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
+    .card-body h3 {
+      margin-bottom: 5px;
+      color: #8b0000;
     }
 
     .price {
-      color: #2e7d32;
-      font-weight: bold;
+      font-weight: 600;
       margin-bottom: 10px;
     }
 
-    .btn {
-      background: #7b1fa2;
-      color: white;
+    button {
+      width: 100%;
+      padding: 10px;
       border: none;
-      padding: 8px 14px;
+      background: #8b0000;
+      color: white;
       border-radius: 6px;
       cursor: pointer;
-      font-size: 14px;
     }
 
-    .btn:hover {
-      background: #6a1b9a;
+    button:hover {
+      background: #a00000;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      color: #777;
       margin-top: 40px;
+      background: #8b0000;
+      color: white;
     }
   </style>
 </head>
-
 <body>
 
-  <!-- NAVBAR -->
+  <!-- Navbar -->
+  <nav>
+    <h2>Sweet Shop Management</h2>
+    <ul>
+      <li>Home</li>
+      <li>Login</li>
+      <li>Cart</li>
+      <li>Help</li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
   <header>
-    <h1>🍬 Sweet Shop Management</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Login</a>
-      <a href="#">Cart</a>
-      <a href="#">Help</a>
-    </nav>
+    <h1>Traditional Indian Sweets</h1>
+    <p>Fresh • Hygienic • Authentic Taste</p>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h2>Traditional Indian Sweets</h2>
-    <p>Fresh • Authentic • Hygienic • Priced per Kg</p>
-  </section>
-
-  <!-- SWEETS -->
-  <section class="container">
+  <!-- Sweet Cards -->
+  <div class="container">
     <div class="grid">
 
-      <!-- 20 SWEETS -->
-      <!-- Each card uses ONLINE image URLs -->
-
+      <!-- Each Sweet -->
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1600628422019-8a79f8c7c6f4" />
-        <div class="card-content">
-          <h3>Gulab Jamun</h3>
-          <p class="price">₹320 / kg</p>
-          <button class="btn">Add to Cart</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1625231041399-e5c5a60c7c87" />
-        <div class="card-content">
+        <img src="https://source.unsplash.com/400x300/?rasgulla" />
+        <div class="card-body">
           <h3>Rasgulla</h3>
-          <p class="price">₹300 / kg</p>
-          <button class="btn">Add to Cart</button>
+          <div class="price">₹320 / kg</div>
+          <button>Add to Cart</button>
         </div>
       </div>
 
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1617196038439-bfeefb9c9e04" />
-        <div class="card-content">
+        <img src="https://source.unsplash.com/400x300/?gulab-jamun" />
+        <div class="card-body">
+          <h3>Gulab Jamun</h3>
+          <div class="price">₹350 / kg</div>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://source.unsplash.com/400x300/?jalebi" />
+        <div class="card-body">
+          <h3>Jalebi</h3>
+          <div class="price">₹280 / kg</div>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://source.unsplash.com/400x300/?kaju-katli" />
+        <div class="card-body">
           <h3>Kaju Katli</h3>
-          <p class="price">₹850 / kg</p>
-          <button class="btn">Add to Cart</button>
+          <div class="price">₹900 / kg</div>
+          <button>Add to Cart</button>
         </div>
       </div>
 
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1600628421686-3c7a8f0b2a59" />
-        <div class="card-content">
+        <img src="https://source.unsplash.com/400x300/?laddu-indian-sweet" />
+        <div class="card-body">
           <h3>Motichoor Laddu</h3>
-          <p class="price">₹420 / kg</p>
-          <button class="btn">Add to Cart</button>
+          <div class="price">₹420 / kg</div>
+          <button>Add to Cart</button>
         </div>
       </div>
 
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1600628421056-2c4b0bbec8c2" />
-        <div class="card-content">
-          <h3>Soan Papdi</h3>
-          <p class="price">₹260 / kg</p>
-          <button class="btn">Add to Cart</button>
+        <img src="https://source.unsplash.com/400x300/?barfi-indian-sweet" />
+        <div class="card-body">
+          <h3>Milk Barfi</h3>
+          <div class="price">₹380 / kg</div>
+          <button>Add to Cart</button>
         </div>
       </div>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1630409346695-d7e3e3e8f3b4" />
-        <div class="card-content">
-          <h3>Mysore Pak</h3>
-          <p class="price">₹480 / kg</p>
-          <button class="btn">Add to Cart</button>
-        </div>
-      </div>
-
-      <!-- You can DUPLICATE these cards to reach 20 -->
-      <!-- Same pattern, different names & prices -->
+      <!-- Add more sweets similarly (up to 20 if you want) -->
 
     </div>
-  </section>
+  </div>
 
   <footer>
-    © 2025 Sweet Shop Management System • Frontend Demo
+    © 2025 Sweet Shop Management System
   </footer>
 
 </body>
