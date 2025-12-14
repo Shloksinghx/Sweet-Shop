@@ -3,21 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mithai Mahal - Authentic Indian Sweets</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Halwai - Real Indian Sweets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- CSS Variables & Reset for Minimal Design --- */
+        /* --- Reset & Variables --- */
         :root {
-            --primary-accent: #ff9f1c; /* Warm Saffron/Gold - vibrant but traditional */
-            --primary-dark: #e38806;
-            --text-dark: #2d2d2d;
-            --text-grey: #777777;
-            --bg-body: #f8f9fa; /* Very light grey for less harshness than pure white */
-            --bg-white: #ffffff;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            --hover-shadow: 0 12px 24px rgba(0,0,0,0.12);
+            --primary: #e67e22; /* A deep, warm saffron */
+            --dark: #2c3e50;
+            --light-grey: #ecf0f1;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
 
         * {
@@ -28,353 +25,309 @@
         }
 
         body {
-            background-color: var(--bg-body);
-            color: var(--text-dark);
+            background-color: #f9f9f9;
+            color: var(--dark);
         }
 
         a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
 
-        /* --- Sticky Header & Navigation --- */
-        .navbar {
+        /* --- Sticky Modern Header --- */
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 5%;
-            background-color: var(--bg-white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            color: var(--primary);
+            letter-spacing: 1px;
         }
-        .logo i { color: var(--primary-accent); }
 
-        .nav-menu {
+        /* Navigation Links (Hidden on small screens for minimalism) */
+        .nav-links {
             display: flex;
             gap: 2rem;
         }
-        .nav-menu a {
+        .nav-links a {
             font-weight: 500;
             font-size: 0.9rem;
+            color: var(--dark);
             transition: color 0.3s;
         }
-        .nav-menu a:hover { color: var(--primary-accent); }
+        .nav-links a:hover { color: var(--primary); }
 
-        .nav-icons {
+        /* Header Right Icons */
+        .header-icons {
             display: flex;
             align-items: center;
             gap: 1.5rem;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
-        .nav-icons a { transition: color 0.3s; position: relative;}
-        .nav-icons a:hover { color: var(--primary-accent); }
         
-        .cart-count {
+        .icon-btn {
+            color: var(--dark);
+            transition: color 0.3s;
+            position: relative;
+        }
+        .icon-btn:hover { color: var(--primary); }
+
+        .cart-badge {
             position: absolute;
             top: -8px;
             right: -8px;
-            background: var(--primary-accent);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: bold;
-            height: 18px;
-            width: 18px;
+            background: var(--primary);
+            color: var(--white);
+            font-size: 0.6rem;
+            width: 16px;
+            height: 16px;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             border-radius: 50%;
         }
 
-        /* --- Minimal Hero Section --- */
-        .hero {
-            text-align: center;
-            padding: 4rem 1rem;
-            background-color: var(--bg-white);
-            margin-bottom: 2rem;
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .hero p {
-            color: var(--text-grey);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* --- Main Container --- */
+        /* --- Main Content --- */
         .container {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px 4rem;
+            margin: 3rem auto;
+            padding: 0 20px;
         }
 
-        .section-header {
+        .section-title {
+            font-size: 1.8rem;
             margin-bottom: 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            font-weight: 600;
         }
-        .section-header h2 { font-weight: 600; }
 
-        /* --- Authentic Product Grid --- */
-        .product-grid {
+        /* --- Product Grid Styles --- */
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
-        .product-card {
-            background: var(--bg-white);
-            border-radius: 16px;
+        .card {
+            background: var(--white);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            border: 1px solid #eee;
         }
 
-        .product-card:hover {
-            box-shadow: var(--hover-shadow);
+        .card:hover {
             transform: translateY(-5px);
         }
 
-        /* The framing for the real photos */
-        .product-image-frame {
-            height: 240px;
+        /* Key to realistic photos: Fixed height container + object-fit: cover */
+        .card-img-box {
+            height: 250px;
             width: 100%;
-            background-color: #f0f0f0;
+            background: #f0f0f0;
             position: relative;
-            overflow: hidden;
         }
 
-        .product-image-frame img {
+        .card-img-box img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures photos fill the space realistically */
-            transition: transform 0.5s ease;
-        }
-        
-        .product-card:hover .product-image-frame img {
-            transform: scale(1.08); /* Subtle zoom effect on hover */
+            object-fit: cover; /* ensures the image fills the box realistically without stretching */
         }
 
-        .product-info {
+        .card-content {
             padding: 1.5rem;
         }
 
-        .product-title {
-            font-size: 1.1rem;
+        .sweet-title {
+            font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
 
-        .product-desc {
+        .sweet-desc {
             font-size: 0.9rem;
-            color: var(--text-grey);
+            color: #666;
             margin-bottom: 1rem;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        .product-footer {
+        .card-footer {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-end;
             margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #eee;
         }
 
-        .price-tag {
+        .price-block {
             display: flex;
             flex-direction: column;
         }
         .price {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--text-dark);
+            color: var(--dark);
         }
-        .per-kg {
+        .unit {
             font-size: 0.85rem;
-            color: var(--text-grey);
+            color: #888;
         }
 
-        .add-cart-btn {
-            background-color: var(--primary-accent);
-            color: white;
-            border: none;
+        .add-btn {
             padding: 0.8rem 1.2rem;
-            border-radius: 30px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
             cursor: pointer;
-            font-weight: 500;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: background-color 0.2s;
+            transition: background 0.2s;
         }
-        .add-cart-btn:hover {
-            background-color: var(--primary-dark);
-        }
+        .add-btn:hover { background: #d35400; }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .nav-menu { display: none; } /* Hide links on small screens for minimalism */
-            .hero h1 { font-size: 2rem; }
-            .product-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+            .nav-links { display: none; }
+            .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">
-            <i class="fas fa-bowl-food"></i> Mithai Mahal
-        </div>
-        <ul class="nav-menu">
-            <li><a href="#">Sweets</a></li>
-            <li><a href="#">Savouries</a></li>
-            <li><a href="#">Gifting</a></li>
-            <li><a href="#">About Us</a></li>
-        </ul>
-        <div class="nav-icons">
-            <a href="#" title="Help Center"><i class="far fa-circle-question"></i></a>
-            <a href="#" title="Account / Login"><i class="far fa-user"></i></a>
-            <a href="#" title="View Cart">
+    <header>
+        <div class="logo">HALWAI</div>
+        
+        <nav class="nav-links">
+            <a href="#">Menu</a>
+            <a href="#">Specials</a>
+            <a href="#">Gifting Boxes</a>
+        </nav>
+
+        <div class="header-icons">
+            <a href="#" class="icon-btn" title="Help & Support">
+                <i class="far fa-circle-question"></i>
+            </a>
+            <a href="#" class="icon-btn" title="Login / Account">
+                <i class="far fa-user"></i>
+            </a>
+            <a href="#" class="icon-btn cart-btn" title="Your Cart">
                 <i class="fas fa-bag-shopping"></i>
-                <span class="cart-count">2</span>
+                <span class="cart-badge">3</span>
             </a>
         </div>
-    </nav>
-
-    <section class="hero">
-        <h1>Authentic Indian Flavours</h1>
-        <p>Handcrafted traditional sweets made with pure ghee and premium ingredients. Delivered fresh.</p>
-    </section>
+    </header>
 
     <main class="container">
-        <div class="section-header">
-            <h2>Traditional Favorites</h2>
-        </div>
+        <h2 class="section-title">Today's Fresh Sweets</h2>
 
-        <div class="product-grid">
+        <div class="grid">
 
-            <div class="product-card">
-                <div class="product-image-frame">
-                    <img src="https://images.unsplash.com/photo-1631857238593-043c47769836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=85" alt="Gulab Jamun Real Photo">
+            <div class="card">
+                <div class="card-img-box">
+                    <img src="https://www.archanaskitchen.com/images/archanaskitchen/1-Author/moulidhar_ganesh/Kala_Jamun_Recipe_with_Khoya_or_Mawa-1.jpg" alt="Real Gulab Jamun">
                 </div>
-                <div class="product-info">
-                    <h3 class="product-title">Classic Gulab Jamun</h3>
-                    <p class="product-desc">Soft, deep-fried milk dumplings soaked in warm cardamom sugar syrup.</p>
-                    <div class="product-footer">
-                        <div class="price-tag">
+                <div class="card-content">
+                    <h3 class="sweet-title">Kala Jamun</h3>
+                    <p class="sweet-desc">Dark, rich fried dumplings made of khoya soaked in thick sugar syrup. A robust classic.</p>
+                    <div class="card-footer">
+                        <div class="price-block">
                             <span class="price">₹480</span>
-                            <span class="per-kg">per kg</span>
+                            <span class="unit">per kg</span>
                         </div>
-                        <button class="add-cart-btn">
-                            <i class="fas fa-cart-plus"></i> Add
-                        </button>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add</button>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="product-image-frame">
-                    <img src="https://www.archanaskitchen.com/images/archanaskitchen/1-Author/moulidhar_ganesh/Kaju_Katli.jpg" alt="Kaju Katli Real Photo">
+            <div class="card">
+                <div class="card-img-box">
+                    <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2013/11/motichoor-ladoo-1.jpg" alt="Real Motichoor Ladoo">
                 </div>
-                <div class="product-info">
-                    <h3 class="product-title">Premium Kaju Katli</h3>
-                    <p class="product-desc">Signature diamond-shaped cashew fudge made with premium cashews and silver vark.</p>
-                    <div class="product-footer">
-                        <div class="price-tag">
-                            <span class="price">₹950</span>
-                            <span class="per-kg">per kg</span>
+                <div class="card-content">
+                    <h3 class="sweet-title">Motichoor Ladoo</h3>
+                    <p class="sweet-desc">Made from very fine gram flour pearls (boondi) fried in pure ghee. Melt in the mouth texture.</p>
+                    <div class="card-footer">
+                        <div class="price-block">
+                            <span class="price">₹550</span>
+                            <span class="unit">per kg</span>
                         </div>
-                        <button class="add-cart-btn">
-                            <i class="fas fa-cart-plus"></i> Add
-                        </button>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add</button>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="product-image-frame">
-                    <img src="https://t3.ftcdn.net/jpg/04/19/15/71/360_F_419157116_1X8a0i7g21a321344862576579967450.jpg" alt="Motichoor Ladoo Real Photo">
+            <div class="card">
+                <div class="card-img-box">
+                    <img src="https://www.whiskaffair.com/wp-content/uploads/2020/10/Kaju-Katli-2-3.jpg" alt="Real Kaju Katli">
                 </div>
-                <div class="product-info">
-                    <h3 class="product-title">Motichoor Ladoo</h3>
-                    <p class="product-desc">Melt-in-mouth ladoos made from tiny gram flour pearls fried in pure ghee.</p>
-                    <div class="product-footer">
-                        <div class="price-tag">
-                            <span class="price">₹520</span>
-                            <span class="per-kg">per kg</span>
+                <div class="card-content">
+                    <h3 class="sweet-title">Premium Kaju Katli</h3>
+                    <p class="sweet-desc">Thin diamond slices of rich cashew fudge, topped with edible silver leaf. Moderate sweetness.</p>
+                    <div class="card-footer">
+                        <div class="price-block">
+                            <span class="price">₹990</span>
+                            <span class="unit">per kg</span>
                         </div>
-                        <button class="add-cart-btn">
-                            <i class="fas fa-cart-plus"></i> Add
-                        </button>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add</button>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="product-image-frame">
-                    <img src="https://images.unsplash.com/photo-1589989639472-3e2da69b3656?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=85" alt="Jalebi Real Photo">
+            <div class="card">
+                <div class="card-img-box">
+                    <img src="https://www.cubesnjuliennes.com/wp-content/uploads/2020/09/Instant-Jalebi-Recipe.jpg" alt="Real Jalebi">
                 </div>
-                <div class="product-info">
-                    <h3 class="product-title">Kesar Jalebi</h3>
-                    <p class="product-desc">Crispy, coiled sweets fermented and fried, then dipped in saffron syrup.</p>
-                    <div class="product-footer">
-                        <div class="price-tag">
-                            <span class="price">₹360</span>
-                            <span class="per-kg">per kg</span>
+                <div class="card-content">
+                    <h3 class="sweet-title">Kesar Jalebi</h3>
+                    <p class="sweet-desc">Thin, crispy swirls fermented for tanginess, fried golden and dipped in saffron syrup.</p>
+                    <div class="card-footer">
+                        <div class="price-block">
+                            <span class="price">₹320</span>
+                            <span class="unit">per kg</span>
                         </div>
-                        <button class="add-cart-btn">
-                            <i class="fas fa-cart-plus"></i> Add
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-             <div class="product-card">
-                <div class="product-image-frame">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Rasgulla_02.jpg" alt="Rasgulla Real Photo">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">Bengali Rasgulla</h3>
-                    <p class="product-desc">Soft, spongy cottage cheese (chenna) balls cooked in light sugar syrup.</p>
-                    <div class="product-footer">
-                        <div class="price-tag">
-                            <span class="price">₹400</span>
-                            <span class="per-kg">per kg</span>
-                        </div>
-                        <button class="add-cart-btn">
-                            <i class="fas fa-cart-plus"></i> Add
-                        </button>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add</button>
                     </div>
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="product-image-frame">
-                    <img src="https://m.media-amazon.com/images/I/81oNqGZ7CPL._SL1500_.jpg" alt="Assorted Sweets Box Real Photo">
+            <div class="card">
+                <div class="card-img-box">
+                    <img src="https://www.cookwithmanali.com/wp-content/uploads/2014/07/Rasmalai-Recipe-500x500.jpg" alt="Real Rasmalai">
                 </div>
-                <div class="product-info">
-                    <h3 class="product-title">Royal Gifting Box</h3>
-                    <p class="product-desc">A luxurious assorted collection of our finest dry-fruit based sweets.</p>
-                    <div class="product-footer">
-                        <div class="price-tag">
-                            <span class="price">₹1450</span>
-                            <span class="per-kg">per box</span>
+                <div class="card-content">
+                    <h3 class="sweet-title">Kesar Rasmalai</h3>
+                    <p class="sweet-desc">Soft cottage cheese discs dunked in rich, creamy, saffron-flavored milk rabri.</p>
+                    <div class="card-footer">
+                        <div class="price-block">
+                            <span class="price">₹600</span>
+                            <span class="unit">per kg</span>
                         </div>
-                        <button class="add-cart-btn" style="background-color: var(--text-dark);">
-                           <i class="fas fa-gift"></i> Buy
-                        </button>
+                        <button class="add-btn"><i class="fas fa-plus"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+             <div class="card">
+                <div class="card-img-box">
+                    <img src="https://thumbs.dreamstime.com/b/indian-sweets-mithai-plate-64725985.jpg" alt="Real Mixed Sweets Platter">
+                </div>
+                <div class="card-content">
+                    <h3 class="sweet-title">Festival Mix Platter</h3>
+                    <p class="sweet-desc">An assorted selection of our finest dry and syrup-based sweets, perfect for gifting.</p>
+                    <div class="card-footer">
+                        <div class="price-block">
+                            <span class="price">₹1200</span>
+                            <span class="unit">per box</span>
+                        </div>
+                        <button class="add-btn" style="background-color: var(--dark);"><i class="fas fa-gift"></i> Buy</button>
                     </div>
                 </div>
             </div>
