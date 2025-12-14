@@ -1,339 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halwai - Real Indian Sweets</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Halwai – Authentic Indian Sweets</title>
 
-    <style>
-        /* --- Reset & Variables --- */
-        :root {
-            --primary: #e67e22; /* A deep, warm saffron */
-            --dark: #2c3e50;
-            --light-grey: #ecf0f1;
-            --white: #ffffff;
-            --shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        body {
-            background-color: #f9f9f9;
-            color: var(--dark);
-        }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f6f6f6;
+  color: #333;
+}
 
-        a { text-decoration: none; color: inherit; }
+/* NAVBAR */
+header {
+  background: #fff;
+  padding: 16px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
 
-        /* --- Sticky Modern Header --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            background: var(--white);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #c47a00;
+}
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: 1px;
-        }
+.logo span {
+  font-weight: 400;
+  font-size: 16px;
+  color: #888;
+}
 
-        /* Navigation Links (Hidden on small screens for minimalism) */
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-        .nav-links a {
-            font-weight: 500;
-            font-size: 0.9rem;
-            color: var(--dark);
-            transition: color 0.3s;
-        }
-        .nav-links a:hover { color: var(--primary); }
+nav a {
+  margin: 0 18px;
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+}
 
-        /* Header Right Icons */
-        .header-icons {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .icon-btn {
-            color: var(--dark);
-            transition: color 0.3s;
-            position: relative;
-        }
-        .icon-btn:hover { color: var(--primary); }
+.icons span {
+  margin-left: 18px;
+  font-size: 18px;
+  cursor: pointer;
+}
 
-        .cart-badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: var(--primary);
-            color: var(--white);
-            font-size: 0.6rem;
-            width: 16px;
-            height: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
+/* HERO */
+.hero {
+  height: 420px;
+  background: linear-gradient(
+      rgba(0,0,0,0.35),
+      rgba(0,0,0,0.35)
+    ),
+    url("https://images.unsplash.com/photo-1625396819881-207eaf1d8a65?q=80&w=1600") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+}
 
-        /* --- Main Content --- */
-        .container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 20px;
-        }
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  font-size: 48px;
+  margin-bottom: 10px;
+}
 
-        .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
+.hero p {
+  color: #eee;
+  font-size: 18px;
+}
 
-        /* --- Product Grid Styles --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-        }
+/* SECTION TITLE */
+.section {
+  padding: 60px 70px;
+}
 
-        .card {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
-            border: 1px solid #eee;
-        }
+.section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: #c47a00;
+  margin-bottom: 40px;
+  position: relative;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+.section h2::after {
+  content: '';
+  width: 70px;
+  height: 3px;
+  background: #c47a00;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+}
 
-        /* Key to realistic photos: Fixed height container + object-fit: cover */
-        .card-img-box {
-            height: 250px;
-            width: 100%;
-            background: #f0f0f0;
-            position: relative;
-        }
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+}
 
-        .card-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* ensures the image fills the box realistically without stretching */
-        }
+/* CARD */
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 15px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
 
-        .card-content {
-            padding: 1.5rem;
-        }
+.card:hover {
+  transform: translateY(-5px);
+}
 
-        .sweet-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 12px;
+}
 
-        .sweet-desc {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
+.card h3 {
+  margin: 15px 0 6px;
+  font-size: 18px;
+}
 
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-top: 1rem;
-        }
+.card p {
+  font-size: 13px;
+  color: #777;
+  line-height: 1.5;
+}
 
-        .price-block {
-            display: flex;
-            flex-direction: column;
-        }
-        .price {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--dark);
-        }
-        .unit {
-            font-size: 0.85rem;
-            color: #888;
-        }
+.price {
+  margin-top: 12px;
+  font-size: 22px;
+  font-weight: 600;
+}
 
-        .add-btn {
-            padding: 0.8rem 1.2rem;
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: background 0.2s;
-        }
-        .add-btn:hover { background: #d35400; }
+.unit {
+  font-size: 12px;
+  color: #777;
+}
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-        }
-    </style>
+button {
+  margin-top: 14px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #d18b00;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+button.alt {
+  background: #b97400;
+}
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">HALWAI</div>
-        
-        <nav class="nav-links">
-            <a href="#">Menu</a>
-            <a href="#">Specials</a>
-            <a href="#">Gifting Boxes</a>
-        </nav>
+<header>
+  <div class="logo">Halwai <span>– Authentic Indian Sweets</span></div>
+  <nav>
+    <a href="#">Sweets</a>
+    <a href="#">Savories</a>
+    <a href="#">About Us</a>
+  </nav>
+  <div class="icons">
+    <span>🔍</span>
+    <span>🛒</span>
+    <span>❤️</span>
+    <span>👤</span>
+  </div>
+</header>
 
-        <div class="header-icons">
-            <a href="#" class="icon-btn" title="Help & Support">
-                <i class="far fa-circle-question"></i>
-            </a>
-            <a href="#" class="icon-btn" title="Login / Account">
-                <i class="far fa-user"></i>
-            </a>
-            <a href="#" class="icon-btn cart-btn" title="Your Cart">
-                <i class="fas fa-bag-shopping"></i>
-                <span class="cart-badge">3</span>
-            </a>
-        </div>
-    </header>
+<section class="hero">
+  <div>
+    <h1>Amrit Mithai Bhandar</h1>
+    <p>Handcrafted Tradition & Love</p>
+  </div>
+</section>
 
-    <main class="container">
-        <h2 class="section-title">Today's Fresh Sweets</h2>
+<section class="section">
+  <h2>Today’s Fresh Sweets</h2>
 
-        <div class="grid">
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1631515242808-497c3fbd3972" />
+      <h3>Kala Jamun</h3>
+      <p>Rich milk solids soaked in aromatic sugar syrup.</p>
+    </div>
 
-            <div class="card">
-                <div class="card-img-box">
-                    <img src="https://www.archanaskitchen.com/images/archanaskitchen/1-Author/moulidhar_ganesh/Kala_Jamun_Recipe_with_Khoya_or_Mawa-1.jpg" alt="Real Gulab Jamun">
-                </div>
-                <div class="card-content">
-                    <h3 class="sweet-title">Kala Jamun</h3>
-                    <p class="sweet-desc">Dark, rich fried dumplings made of khoya soaked in thick sugar syrup. A robust classic.</p>
-                    <div class="card-footer">
-                        <div class="price-block">
-                            <span class="price">₹480</span>
-                            <span class="unit">per kg</span>
-                        </div>
-                        <button class="add-btn"><i class="fas fa-plus"></i> Add</button>
-                    </div>
-                </div>
-            </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1625398407796-82650a8c7b94" />
+      <h3>Premium Kaju Katli</h3>
+      <p>Thin cashew layers with authentic silver leaf.</p>
+    </div>
 
-            <div class="card">
-                <div class="card-img-box">
-                    <img src="https://www.vegrecipesofindia.com/wp-content/uploads/2013/11/motichoor-ladoo-1.jpg" alt="Real Motichoor Ladoo">
-                </div>
-                <div class="card-content">
-                    <h3 class="sweet-title">Motichoor Ladoo</h3>
-                    <p class="sweet-desc">Made from very fine gram flour pearls (boondi) fried in pure ghee. Melt in the mouth texture.</p>
-                    <div class="card-footer">
-                        <div class="price-block">
-                            <span class="price">₹550</span>
-                            <span class="unit">per kg</span>
-                        </div>
-                        <button class="add-btn"><i class="fas fa-plus"></i> Add</button>
-                    </div>
-                </div>
-            </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950" />
+      <h3>Maju Kame</h3>
+      <p>Soft milk-based delight with rich flavor.</p>
+    </div>
 
-            <div class="card">
-                <div class="card-img-box">
-                    <img src="https://www.whiskaffair.com/wp-content/uploads/2020/10/Kaju-Katli-2-3.jpg" alt="Real Kaju Katli">
-                </div>
-                <div class="card-content">
-                    <h3 class="sweet-title">Premium Kaju Katli</h3>
-                    <p class="sweet-desc">Thin diamond slices of rich cashew fudge, topped with edible silver leaf. Moderate sweetness.</p>
-                    <div class="card-footer">
-                        <div class="price-block">
-                            <span class="price">₹990</span>
-                            <span class="unit">per kg</span>
-                        </div>
-                        <button class="add-btn"><i class="fas fa-plus"></i> Add</button>
-                    </div>
-                </div>
-            </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60" />
+      <h3>Jalebi</h3>
+      <p>Crispy golden spirals dipped in saffron syrup.</p>
+    </div>
 
-            <div class="card">
-                <div class="card-img-box">
-                    <img src="https://www.cubesnjuliennes.com/wp-content/uploads/2020/09/Instant-Jalebi-Recipe.jpg" alt="Real Jalebi">
-                </div>
-                <div class="card-content">
-                    <h3 class="sweet-title">Kesar Jalebi</h3>
-                    <p class="sweet-desc">Thin, crispy swirls fermented for tanginess, fried golden and dipped in saffron syrup.</p>
-                    <div class="card-footer">
-                        <div class="price-block">
-                            <span class="price">₹320</span>
-                            <span class="unit">per kg</span>
-                        </div>
-                        <button class="add-btn"><i class="fas fa-plus"></i> Add</button>
-                    </div>
-                </div>
-            </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1620884972563-0e1e74e0e1b8" />
+      <h3>Sese Jemun</h3>
+      <div class="price">₹480 <span class="unit">/kg</span></div>
+      <button>Add to Cart</button>
+    </div>
 
-            <div class="card">
-                <div class="card-img-box">
-                    <img src="https://www.cookwithmanali.com/wp-content/uploads/2014/07/Rasmalai-Recipe-500x500.jpg" alt="Real Rasmalai">
-                </div>
-                <div class="card-content">
-                    <h3 class="sweet-title">Kesar Rasmalai</h3>
-                    <p class="sweet-desc">Soft cottage cheese discs dunked in rich, creamy, saffron-flavored milk rabri.</p>
-                    <div class="card-footer">
-                        <div class="price-block">
-                            <span class="price">₹600</span>
-                            <span class="unit">per kg</span>
-                        </div>
-                        <button class="add-btn"><i class="fas fa-plus"></i> Add</button>
-                    </div>
-                </div>
-            </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1600628422019-35d7b6f3f56a" />
+      <h3>Kesar Ramet</h3>
+      <div class="price">₹480 <span class="unit">/kg</span></div>
+    </div>
 
-             <div class="card">
-                <div class="card-img-box">
-                    <img src="https://thumbs.dreamstime.com/b/indian-sweets-mithai-plate-64725985.jpg" alt="Real Mixed Sweets Platter">
-                </div>
-                <div class="card-content">
-                    <h3 class="sweet-title">Festival Mix Platter</h3>
-                    <p class="sweet-desc">An assorted selection of our finest dry and syrup-based sweets, perfect for gifting.</p>
-                    <div class="card-footer">
-                        <div class="price-block">
-                            <span class="price">₹1200</span>
-                            <span class="unit">per box</span>
-                        </div>
-                        <button class="add-btn" style="background-color: var(--dark);"><i class="fas fa-gift"></i> Buy</button>
-                    </div>
-                </div>
-            </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1601050690590-4e9f4d6fdc63" />
+      <h3>Bengali Rasbhog</h3>
+      <div class="price">₹70 <span class="unit">/pc</span></div>
+      <button>Add to Cart</button>
+    </div>
 
-        </div>
-    </main>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1622621746668-59fb299bc4d8" />
+      <h3>Festival Mix Platter</h3>
+      <div class="price">₹250</div>
+      <button class="alt">Buy Gift Box</button>
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
